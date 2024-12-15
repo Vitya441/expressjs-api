@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../database/db');
-const Clinic = require('./clinic');
 
 const Ticket = sequelize.define('Ticket', {
     service_name: {

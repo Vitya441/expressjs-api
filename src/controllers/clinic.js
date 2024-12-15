@@ -1,5 +1,6 @@
 const clinicService = require("../service/clinic");
 
+
 class ClinicController {
     
     async createClinic(req, res) {

@@ -8,6 +8,7 @@ const seedRoles = require('./config/seedRoles');
 const userRoutes = require('./routes/user');
 const authRoutes = require('./routes/auth');
 const clinicRoutes = require('./routes/clinic');
+const ticketRoutes = require('./routes/ticket');
 
 
 
@@ -19,7 +20,7 @@ app.use(express.json()); // Для парсинга JSON-тел запросов
 app.use('/users', userRoutes);
 app.use('/auth', authRoutes);
 app.use('/clinics', clinicRoutes);
-
+app.use('/tickets', ticketRoutes);
 
 
 
