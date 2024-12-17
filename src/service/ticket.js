@@ -11,7 +11,11 @@ class TicketService {
     }
 
     async findTicketById(ticketId) {
-        return await ticketRepository.findById(ticketId);
+        const ticket = await ticketRepository.findById(ticketId);
+        if (!ticket) {
+            throw new Error('Ticket not found'); // Ошибка выбрасывается, если тикет отсутствует
+        }
+        return ticket;
     }
 
     async findAllByClinicId(clinicId) {

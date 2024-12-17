@@ -7,4 +7,6 @@ router.get("/", ticketController.findAllTickets);
 router.get("/:id", ticketController.findTicketById);
 router.get("/clinics/:clinic_id", ticketController.findAllByClinicId);
 
+
+
 module.exports = router;

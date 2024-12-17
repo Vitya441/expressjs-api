@@ -22,4 +22,5 @@ module.exports = {
     Clinic,
     Review,
     Ticket,
+    UserRole
 };

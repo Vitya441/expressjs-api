@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 const UserRepository = require("../repository/user");
 const UserRoleRepository = require("../repository/userRole");
 const constants = require("../constants");
@@ -12,17 +13,16 @@ class AuthService {
         }
     }
 
-    async login(email, password, next) {
+    async login(email, password) {
         const user = await UserRepository.findUserByEmail(email);
-        
-        // TODO (validate password)
-        if (!user) {
-            return new Error("Authorizatoin Exception");
+        if (!user || !(await user.validatePassword(password))) {
+            throw new Error('Invalid email or password');
         }
+        const token = jwt.sign({ id: user.id, email: user.email }, 'your_jwt_secret', { expiresIn: '100d' } );
 
-        user.role
+        return { user, token };
+
     }
-
 
 }
 
