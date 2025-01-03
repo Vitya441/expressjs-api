@@ -1,11 +1,11 @@
 const ticketService = require('../service/ticket'); // Сервис для тестирования
 const ticketRepository = require('../repository/ticket'); // Мок репозитория
 
-jest.mock('../repository/ticket'); // Мокаем репозиторий
+jest.mock('../repository/ticket');
 
 describe('Ticket Service', () => {
     afterEach(() => {
-        jest.clearAllMocks(); // Очищаем моки после каждого теста
+        jest.clearAllMocks();
     });
 
     test('should create a ticket', async () => {

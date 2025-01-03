@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+
+  mongodb:
+    image: mongo:6-jammy
+    ports:
+      - "27017:27017"
+    volumes:
+      - dbdata6:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 12345678
+      MONGO_INITDB_DATABASE: nest
+    restart: unless-stopped
+    container_name: mongodb_contaner
+
+
+
+volumes:
+  dbdata6:
+
